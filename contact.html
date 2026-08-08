@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="contact.title">Contact — RaphNLab</title>
+<meta name="description" content="Get in touch with RaphNLab about embedded software services, training courses, or a workshop for your school.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact">
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="assets/img/mascot-square.png" alt="RaphNLab">
+      <span class="brand-word">RaphNLab</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home" data-i18n="common.nav_home">Home</a></li>
+      <li><a href="about.html" data-page="about" data-i18n="common.nav_about">About</a></li>
+      <li><a href="services.html" data-page="services" data-i18n="common.nav_services">Services</a></li>
+      <li><a href="training.html" data-page="training" data-i18n="common.nav_training">Training</a></li>
+      <li><a href="realisations.html" data-page="realisations" data-i18n="common.nav_realisations">Realisations</a></li>
+      <li><a href="contact.html" data-page="contact" data-i18n="common.nav_contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
+      <a href="contact.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.86rem;" data-i18n="common.nav_cta">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero small">
+  <div class="container">
+    <span class="eyebrow on-dark" data-i18n="contact.hero_eyebrow">Let's talk</span>
+    <h1 data-i18n="contact.hero_title">Tell us what you're trying to do.</h1>
+    <p class="lede" data-i18n="contact.hero_lede">One message is enough to start.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:48px; align-items:start;">
+    <div class="card" style="max-width:none;">
+      <h2 class="mt-0" data-i18n="contact.form_title">Send us a message</h2>
+      <form id="contact-form" class="form-grid">
+        <div class="form-row-2">
+          <div>
+            <label for="cf-name" data-i18n="contact.form_name">Full name</label>
+            <input type="text" id="cf-name" name="name" required>
+          </div>
+          <div>
+            <label for="cf-email" data-i18n="contact.form_email">Email address</label>
+            <input type="email" id="cf-email" name="email" required>
+          </div>
+        </div>
+        <div>
+          <label for="cf-interest" data-i18n="contact.form_interest">I'm getting in touch about</label>
+          <select id="cf-interest" name="interest">
+            <option data-i18n="contact.form_interest_1">Embedded software services for my company</option>
+            <option data-i18n="contact.form_interest_2">A course or training for myself</option>
+            <option data-i18n="contact.form_interest_3">A workshop for my school or my kids</option>
+            <option data-i18n="contact.form_interest_4">A partnership or university cooperation</option>
+            <option data-i18n="contact.form_interest_5">Something else</option>
+          </select>
+        </div>
+        <div>
+          <label for="cf-message" data-i18n="contact.form_message">Message</label>
+          <textarea id="cf-message" name="message" data-i18n-placeholder="contact.form_message_placeholder" placeholder="A few sentences about what you're working on." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.form_submit">Send message</button>
+        <p class="form-note" data-i18n="contact.form_note">This form opens your email client with the details pre-filled — nothing is sent automatically or stored on this website.</p>
+      </form>
+    </div>
+
+    <div>
+      <h2 data-i18n="contact.direct_title">Prefer email or social directly?</h2>
+      <div class="card-flat" style="margin-bottom:16px;">
+        <strong data-i18n="contact.direct_email_label">Email</strong>
+        <p class="mt-0"><a href="mailto:s.ngoufack@raphnlab.de">s.ngoufack@raphnlab.de</a></p>
+      </div>
+      <div class="card-flat" style="margin-bottom:16px;">
+        <strong data-i18n="contact.direct_location_label">Based in</strong>
+        <p class="mt-0" data-i18n="contact.direct_location_value">Germany & Cameroon — most work is delivered remotely or on-site by arrangement.</p>
+      </div>
+      <div class="card-flat">
+        <strong data-i18n="contact.direct_social_label">Follow along</strong>
+        <p class="mt-0"><a href="https://www.instagram.com/raphnlab_/" target="_blank" rel="noopener">instagram.com/raphnlab_</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/img/mascot-square.png" alt="RaphNLab">
+          <span>RaphNLab</span>
+        </div>
+        <p data-i18n="common.footer_tagline">Embedded systems engineering and training, built between Germany and Cameroon.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/raphnlab_/" target="_blank" rel="noopener" aria-label="Instagram"><span style="font-size:0.72rem;font-weight:800;">IG</span></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="common.footer_company">Company</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="common.nav_about">About</a></li>
+          <li><a href="services.html" data-i18n="common.nav_services">Services</a></li>
+          <li><a href="training.html" data-i18n="common.nav_training">Training</a></li>
+          <li><a href="realisations.html" data-i18n="common.nav_realisations">Realisations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="common.footer_contact">Contact</h4>
+        <ul>
+          <li><span data-i18n="common.footer_email_label">Email</span>: <a href="mailto:s.ngoufack@raphnlab.de">s.ngoufack@raphnlab.de</a></li>
+          <li><span data-i18n="common.footer_location_label">Based in</span>: <span data-i18n="common.footer_location_value">Germany & Cameroon</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="common.footer_follow">Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/raphnlab_/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; <span data-year></span> <span data-i18n="common.footer_rights">RaphNLab. All rights reserved.</span></div>
+      <div data-i18n="common.footer_credit">Founded 2020 · Embedded systems, taught and delivered.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n/translations.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
