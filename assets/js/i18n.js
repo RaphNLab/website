@@ -9,6 +9,7 @@
   var SUPPORTED = ["en", "fr", "de"];
   var DEFAULT_LANG = "en";
   var STORAGE_KEY = "raphnlab_lang";
+  var current = DEFAULT_LANG;
 
   function detectInitialLang() {
     var stored = null;
@@ -31,9 +32,18 @@
     return cur;
   }
 
+  // Look up a key in the active language, falling back to English.
+  function t(key) {
+    var all = window.RAPHNLAB_I18N || {};
+    var value = getByPath(all[current] || {}, key);
+    if (value === undefined) value = getByPath(all[DEFAULT_LANG] || {}, key);
+    return value;
+  }
+
   function applyLang(lang) {
     var dict = window.RAPHNLAB_I18N && window.RAPHNLAB_I18N[lang];
     if (!dict) return;
+    current = lang;
 
     document.documentElement.setAttribute("lang", lang);
 
@@ -53,9 +63,15 @@
     var placeholders = document.querySelectorAll("[data-i18n-placeholder]");
     for (var j = 0; j < placeholders.length; j++) {
       var pnode = placeholders[j];
-      var pkey = pnode.getAttribute("data-i18n-placeholder");
-      var pvalue = getByPath(dict, pkey);
+      var pvalue = getByPath(dict, pnode.getAttribute("data-i18n-placeholder"));
       if (pvalue !== undefined) pnode.setAttribute("placeholder", pvalue);
+    }
+
+    var labels = document.querySelectorAll("[data-i18n-aria]");
+    for (var a = 0; a < labels.length; a++) {
+      var lnode = labels[a];
+      var lvalue = getByPath(dict, lnode.getAttribute("data-i18n-aria"));
+      if (lvalue !== undefined) lnode.setAttribute("aria-label", lvalue);
     }
 
     var titleNode = document.querySelector("title[data-i18n]");
@@ -64,11 +80,18 @@
       if (tval !== undefined) document.title = tval;
     }
 
-    var switches = document.querySelectorAll(".lang-switch button");
-    for (var k = 0; k < switches.length; k++) {
-      var btn = switches[k];
-      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
-    }
+    // Language dropdown: current flag/code + checked option
+    document.querySelectorAll(".lang-current").forEach(function (btn) {
+      var flag = btn.querySelector(".flag");
+      var code = btn.querySelector(".lang-code");
+      if (flag) flag.className = "flag flag-" + lang;
+      if (code) code.textContent = lang.toUpperCase();
+    });
+    document.querySelectorAll(".lang-options [data-lang]").forEach(function (opt) {
+      opt.setAttribute("aria-current", opt.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+
+    document.dispatchEvent(new CustomEvent("raphnlab:lang", { detail: { lang: lang } }));
   }
 
   function setLang(lang) {
@@ -78,16 +101,31 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    var initial = detectInitialLang();
-    applyLang(initial);
+    applyLang(detectInitialLang());
 
-    var switches = document.querySelectorAll(".lang-switch button");
-    for (var i = 0; i < switches.length; i++) {
-      switches[i].addEventListener("click", function () {
-        setLang(this.getAttribute("data-lang"));
+    document.querySelectorAll(".lang-menu").forEach(function (menu) {
+      var trigger = menu.querySelector(".lang-current");
+      function close() {
+        menu.classList.remove("open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+      trigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = menu.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", open ? "true" : "false");
       });
-    }
+      menu.querySelectorAll("[data-lang]").forEach(function (opt) {
+        opt.addEventListener("click", function () {
+          setLang(this.getAttribute("data-lang"));
+          close();
+          trigger.focus();
+        });
+      });
+      document.addEventListener("click", function (e) { if (!menu.contains(e.target)) close(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    });
   });
 
   window.RaphNLabSetLang = setLang;
+  window.RaphNLabT = t;
 })();

@@ -10,12 +10,14 @@ index.html          Home
 about.html           About, mission, vision, timeline
 services.html        For companies & institutions (embedded engineering services)
 training.html        For individuals, teams & schools (courses, pricing, kids workshops)
-realisations.html    Project portfolio
-contact.html         Contact form + direct contact details
+realisations.html    Project portfolio (shown as "Projects" in the nav; the
+                     file name is kept so existing links keep working)
+contact.html         Adaptive contact form + direct contact details + FAQ
 
 assets/
   css/style.css       All styling (design tokens at the top as CSS variables)
-  js/main.js          Mobile nav toggle, active nav link, footer year, contact form
+  js/main.js          Mobile nav, carousels, training sub-nav, contact form,
+                      training reservation drawer
   js/i18n.js          Tiny language-switching engine
   i18n/translations.js  All page text, in English / French / German
   img/                Logo variants, favicon, and workshop photos
@@ -29,8 +31,8 @@ There's no server and no build step, so translations live in one JS file:
 
 Every piece of translated text in the HTML has a `data-i18n="page.key"`
 attribute. `assets/js/i18n.js` reads the visitor's saved/browser language,
-finds every `[data-i18n]` element, and swaps in the matching string. Clicking
-EN/FR/DE in the nav bar calls the same function and remembers the choice for
+finds every `[data-i18n]` element, and swaps in the matching string. Picking a
+language in the nav bar dropdown calls the same function and remembers the choice for
 next time (`localStorage`).
 
 **To edit copy:** open `assets/i18n/translations.js`, find the key (e.g.
@@ -59,15 +61,26 @@ trade-off for "just open the file and it works" simplicity — if the site
 grows much further, moving to a static site generator (11ty, Astro, or even
 a simple template loop) would remove this duplication.
 
-## The contact form has no backend
+## Contact form, topics and reservations
 
-`contact.html`'s form builds a `mailto:` link (see `handleSubmit` in
-`assets/js/main.js`) — submitting it opens the visitor's email client with
-the message pre-filled. Nothing is stored or sent from the website itself.
-This works everywhere with zero setup, but it's not ideal on mobile (not
-everyone has a configured email app) and you get no analytics on form
-submissions. If you want a "real" form later, swap the submit handler for a
-call to a form service (Formspree, Netlify Forms, etc.) or your own backend.
+`contact.html` asks *why* the visitor is writing (Embedded project / Training /
+University & partnership) and adapts the message label and placeholder.
+Links elsewhere on the site pre-select the topic with a query string:
+`contact.html?topic=project`, `?topic=training`, `?topic=partnership`
+(optionally `&course=c1|c2|c3` to pre-fill the course name).
+
+The training page's "Reserve a seat" buttons open a reservation drawer
+instead of the generic contact page.
+
+Both forms work in two modes (see `sendForm` in `assets/js/main.js`):
+
+- **Default (no backend):** submitting opens the visitor's email app with the
+  message pre-filled; the page says so honestly.
+- **Real sending:** set `data-endpoint="https://formspree.io/f/xxxx"` (or any
+  endpoint that accepts a form POST and returns JSON) on
+  `<form id="contact-form">` in `contact.html` and on
+  `<form id="reserve-form">` in `training.html`. Messages are then sent from
+  the page and a confirmation is shown.
 
 ## Images
 
@@ -96,4 +109,15 @@ call to a form service (Formspree, Netlify Forms, etc.) or your own backend.
   next to the Instagram link in all six footers when those channels are
   public.
 - **Pricing**: course prices (149€ / 329€ / 200€) are pulled from your 2024
-  pricing sheet — double check they're still current before publishing.
+  pricing sheet. The bundle (200€) is cheaper than the microcontroller course
+  alone (329€) — confirm this is intentional, or correct it, before publishing.
+- **Course sessions**: courses show "Next cohort forming". Replace with real
+  dates, format (remote / city), language and seats once sessions are planned
+  (`training.next_forming` and the "Preferred session" options).
+- **Partner logos**: "Trusted by" uses monogram placeholders. Drop real logo
+  files into `assets/img/` and swap them into the `.logo-mark` blocks
+  (home page marquee and Projects page).
+- **Fire & gas statistic**: the "FCFA 1 trillion (2019)" figure in the case
+  study (`realisations.cs_challenge`) needs a cited source, or should be removed.
+- **Project visuals**: projects use diagrams/terminal mock-ups drawn in SVG
+  (`.viz-*`). Replace with real prototype/hardware photos when available.

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="about.title">About — RaphNLab</title>
-<meta name="description" content="RaphNLab's story, mission and vision: an embedded systems lab bridging Germany and Cameroon since October 2020.">
+<title data-i18n="about.title">About RaphNLab</title>
+<meta name="description" content="Why RaphNLab exists and where it is going: build, teach and transfer embedded engineering knowledge between Germany and Cameroon.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,73 +13,93 @@
 <header class="site-header">
   <div class="container nav">
     <a href="index.html" class="brand">
-      <img src="assets/img/mascot-square.png" alt="RaphNLab">
+      <img src="assets/img/mascot-nav.png" alt="" width="68" height="28">
       <span class="brand-word">RaphNLab</span>
     </a>
-    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="site-menu">
       <li><a href="index.html" data-page="home" data-i18n="common.nav_home">Home</a></li>
       <li><a href="about.html" data-page="about" data-i18n="common.nav_about">About</a></li>
       <li><a href="services.html" data-page="services" data-i18n="common.nav_services">Services</a></li>
       <li><a href="training.html" data-page="training" data-i18n="common.nav_training">Training</a></li>
-      <li><a href="realisations.html" data-page="realisations" data-i18n="common.nav_realisations">Realisations</a></li>
+      <li><a href="realisations.html" data-page="realisations" data-i18n="common.nav_projects">Projects</a></li>
       <li><a href="contact.html" data-page="contact" data-i18n="common.nav_contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang-switch">
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="fr">FR</button>
-        <button type="button" data-lang="de">DE</button>
+      <div class="lang-menu">
+        <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false" aria-label="Language" data-i18n-aria="common.lang_label"><span class="flag flag-en"></span><span class="lang-code">EN</span></button>
+        <ul class="lang-options">
+          <li><button type="button" data-lang="en" lang="en"><span class="flag flag-en"></span>English</button></li>
+          <li><button type="button" data-lang="fr" lang="fr"><span class="flag flag-fr"></span>Français</button></li>
+          <li><button type="button" data-lang="de" lang="de"><span class="flag flag-de"></span>Deutsch</button></li>
+        </ul>
       </div>
-      <a href="contact.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.86rem;" data-i18n="common.nav_cta">Get in touch</a>
+      <a href="contact.html" class="btn btn-primary nav-cta" data-i18n="common.nav_cta">Get in touch</a>
+      <button type="button" class="nav-toggle" aria-label="Menu" aria-controls="site-menu" aria-expanded="false" data-i18n-aria="common.menu_label"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <section class="hero small">
   <div class="container">
-    <span class="eyebrow on-dark" data-i18n="about.hero_eyebrow">About us</span>
     <h1 data-i18n="about.hero_title">An embedded systems lab built one workshop at a time.</h1>
-    <p class="lede" data-i18n="about.hero_lede">RaphNLab is a Germany-and-Cameroon embedded systems practice.</p>
+    <p class="lede" data-i18n="about.hero_lede">Part engineering studio, part training academy, part bridge between Germany and Cameroon.</p>
   </div>
 </section>
 
 <section>
-  <div class="container" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:48px; align-items:center;">
+  <div class="container split wide-left">
     <div>
       <span class="eyebrow" data-i18n="about.story_eyebrow">Our story</span>
       <h2 data-i18n="about.story_title">From one engineer's notebook to 213 people trained.</h2>
       <p data-i18n="about.story_p1">RaphNLab was founded in October 2020 by Silvere Sacker Ngoufack.</p>
       <p data-i18n="about.story_p2">Today RaphNLab runs on the same premise it started with.</p>
       <p data-i18n="about.story_p3">We work as engineers for hire, and as teachers.</p>
-      <span class="badge" style="margin-top:8px;"><span class="dot"></span><span data-i18n="about.credential_badge">Recognised GIZ Diaspora Expert</span></span>
+      <span class="badge"><span class="dot"></span><span data-i18n="about.credential_badge">Recognised GIZ Diaspora Expert</span></span>
     </div>
-    <div>
-      <div class="photo-frame">
+    <figure class="figure">
+      <div class="photo-frame ratio-4-3">
         <img src="assets/img/photo-mixed-workshop.jpg" alt="Silvere Sacker Ngoufack introducing embedded systems to a mixed-age workshop group">
       </div>
-      <p class="figure-caption" data-i18n="about.photo_caption_1">Silvere Sacker Ngoufack introducing embedded systems to a mixed-age workshop group, Frankfurt.</p>
-    </div>
+      <figcaption class="figure-caption" data-i18n="about.photo_caption_1">Introducing embedded systems to a mixed-age workshop group, Frankfurt.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="section-alt">
-  <div class="container grid grid-2">
-    <div class="card-flat">
-      <h3 data-i18n="about.mission_title">Mission</h3>
-      <p data-i18n="about.mission_text" class="mt-0">RaphNLab is a research and training practice in embedded systems and applied software engineering.</p>
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="about.direction_eyebrow">Our direction</span>
+      <h2 data-i18n="about.direction_title">What drives us today, and where we're going.</h2>
     </div>
-    <div class="card-flat">
-      <h3 data-i18n="about.vision_title">Vision</h3>
-      <p data-i18n="about.vision_text" class="mt-0">We want to build a community of developers working on projects that matter.</p>
+    <div class="direction-grid">
+      <article class="direction-card">
+        <span class="mono-label" data-i18n="about.mission_label">01 / Mission</span>
+        <p class="statement" data-i18n="about.mission_statement">Build. Teach. Transfer.</p>
+        <p data-i18n="about.mission_text">We build practical embedded systems and make engineering knowledge more accessible.</p>
+        <ul class="pillars">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3"/></svg><span data-i18n="about.pillar_engineering">Engineering</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span data-i18n="about.pillar_training">Training</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><span data-i18n="about.pillar_transfer">Knowledge transfer</span></li>
+        </ul>
+      </article>
+      <article class="direction-card">
+        <span class="mono-label" data-i18n="about.vision_label">02 / Vision</span>
+        <p class="statement" data-i18n="about.vision_statement">Engineering knowledge without borders.</p>
+        <p data-i18n="about.vision_text">A future where engineering knowledge moves freely between people, universities, companies and borders.</p>
+        <ul class="pillars">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></svg><span data-i18n="about.pillar_community">Community</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/></svg><span data-i18n="about.pillar_innovation">Innovation</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg><span data-i18n="about.pillar_bridge">Germany ⇄ Cameroon</span></li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="container" style="max-width:880px;">
+  <div class="container narrow">
     <div class="callout">
-      <p style="margin:0;">
+      <p>
         <strong data-i18n="about.dropout_callout_strong">49% of international bachelor's students in Germany never finish their degree</strong><span data-i18n="about.dropout_callout_text"> — nearly double the rate for German students.</span>
       </p>
     </div>
@@ -91,31 +111,40 @@
     <div class="section-head center">
       <span class="eyebrow" data-i18n="about.values_eyebrow">What we believe</span>
       <h2 data-i18n="about.values_title">Four ideas that shape how we work</h2>
+      <p class="lede" data-i18n="about.values_lede">Principles that guide how we build, teach and share knowledge.</p>
     </div>
-    <div class="grid grid-2" style="grid-template-columns:repeat(4,1fr);">
-      <div class="card">
+    <div class="grid grid-4 carousel-md">
+      <article class="card value-card">
+        <span class="mono-label" data-i18n="about.value1_label">01 · Share</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c2-1.3 5-2 8-2v16c-3 0-6 .7-8 2Z"/><path d="M22 5c-2-1.3-5-2-8-2v16c3 0 6 .7 8 2Z"/></svg></span>
         <h3 data-i18n="about.value1_title">Knowledge sharing, by default</h3>
-        <p data-i18n="about.value1_text" class="mt-0">What we learn on a paid project becomes a free seminar.</p>
-      </div>
-      <div class="card">
+        <p data-i18n="about.value1_text">What we learn on a paid project becomes a free seminar.</p>
+      </article>
+      <article class="card value-card">
+        <span class="mono-label" data-i18n="about.value2_label">02 · Build</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4Z"/></svg></span>
         <h3 data-i18n="about.value2_title">Hands-on, always</h3>
-        <p data-i18n="about.value2_text" class="mt-0">Every course chapter ships with real exercises on real hardware.</p>
-      </div>
-      <div class="card">
+        <p data-i18n="about.value2_text">Every course chapter ships with real exercises on real hardware.</p>
+      </article>
+      <article class="card value-card">
+        <span class="mono-label" data-i18n="about.value3_label">03 · Exchange</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg></span>
         <h3 data-i18n="about.value3_title">A bridge, not a one-way pipe</h3>
-        <p data-i18n="about.value3_text" class="mt-0">Knowledge moves both directions between Germany and Cameroon.</p>
-      </div>
-      <div class="card">
+        <p data-i18n="about.value3_text">Knowledge moves both directions between Germany and Cameroon.</p>
+      </article>
+      <article class="card value-card">
+        <span class="mono-label" data-i18n="about.value4_label">04 · Access</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.3 12C19 16.6 12 21 12 21Z"/></svg></span>
         <h3 data-i18n="about.value4_title">Fair pricing, real access</h3>
-        <p data-i18n="about.value4_text" class="mt-0">Courses sustain the lab; kids' workshops stay free.</p>
-      </div>
+        <p data-i18n="about.value4_text">Courses sustain the lab; kids' workshops stay free.</p>
+      </article>
     </div>
+    <div class="carousel-nav"></div>
   </div>
-  <style>@media (max-width:980px){.section-alt .grid{grid-template-columns:repeat(2,1fr) !important;}}@media (max-width:560px){.section-alt .grid{grid-template-columns:1fr !important;}}</style>
 </section>
 
 <section>
-  <div class="container" style="max-width:840px;">
+  <div class="container narrow">
     <div class="section-head">
       <span class="eyebrow" data-i18n="about.timeline_eyebrow">Milestones</span>
       <h2 data-i18n="about.timeline_title">Since October 2020</h2>
@@ -128,7 +157,7 @@
       </div>
       <div class="timeline-item">
         <span class="year">2021</span>
-        <h3 data-i18n="about.tl_2021_title">Staring trainings & knowledge transfer in Cameroon</h3>
+        <h3 data-i18n="about.tl_2021_title">First trainings in Cameroon</h3>
         <p data-i18n="about.tl_2021_text" class="mt-0">A five-day embedded systems training is delivered with partner Clemios SARL.</p>
       </div>
       <div class="timeline-item">
@@ -156,24 +185,24 @@
 </section>
 
 <section class="section-alt">
-  <div class="container" style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:48px; align-items:center;">
-    <div class="photo-frame">
-      <img src="assets/img/photo-cameroon-training.jpg" alt="Embedded systems training delivered in Cameroon">
-    </div>
-    <div>
-      <p class="figure-caption mt-0" data-i18n="about.photo_caption_2">Delivering embedded systems training in Cameroon, in cooperation with partner Clemios SARL.</p>
-      <div class="quote-block">
-        <p data-i18n="home.quote_text">"I will always do what I like, until others like it too."</p>
-        <cite data-i18n="home.quote_cite">Silvere Sacker Ngoufack, Founder of RaphNLab</cite>
+  <div class="container split wide-right">
+    <figure class="figure">
+      <div class="photo-frame ratio-4-3">
+        <img src="assets/img/photo-cameroon-training.jpg" alt="Embedded systems training delivered in Cameroon" loading="lazy">
       </div>
+      <figcaption class="figure-caption" data-i18n="about.photo_caption_2">Delivering embedded systems training in Cameroon, with partner Clemios SARL.</figcaption>
+    </figure>
+    <div class="quote-block">
+      <p data-i18n="home.quote_text">"I will always do what I like, until others like it too."</p>
+      <cite data-i18n="home.quote_cite">Silvere Sacker Ngoufack, Founder of RaphNLab</cite>
     </div>
   </div>
 </section>
 
 <section class="section-ink text-center">
-  <div class="container" style="max-width:720px;">
+  <div class="container max-w center">
     <h2 data-i18n="home.cta_band_title">Let's build something, or teach someone something.</h2>
-    <p data-i18n="home.cta_band_text">Tell us what you're trying to do.</p>
+    <p data-i18n="home.cta_band_text">Tell us what you're trying to do and we'll tell you honestly whether we're the right fit.</p>
     <a href="contact.html" class="btn btn-primary" data-i18n="home.cta_band_button">Start the conversation</a>
   </div>
 </section>
@@ -183,7 +212,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="assets/img/mascot-square.png" alt="RaphNLab">
+          <img src="assets/img/mascot-nav.png" alt="" width="63" height="26">
           <span>RaphNLab</span>
         </div>
         <p data-i18n="common.footer_tagline">Embedded systems engineering and training, built between Germany and Cameroon.</p>
@@ -197,14 +226,15 @@
           <li><a href="about.html" data-i18n="common.nav_about">About</a></li>
           <li><a href="services.html" data-i18n="common.nav_services">Services</a></li>
           <li><a href="training.html" data-i18n="common.nav_training">Training</a></li>
-          <li><a href="realisations.html" data-i18n="common.nav_realisations">Realisations</a></li>
+          <li><a href="realisations.html" data-i18n="common.nav_projects">Projects</a></li>
         </ul>
       </div>
       <div>
         <h4 data-i18n="common.footer_contact">Contact</h4>
         <ul>
-          <li><span data-i18n="common.footer_email_label">Email</span>: <a href="mailto:s.ngoufack@raphnlab.de">s.ngoufack@raphnlab.de</a></li>
-          <li><span data-i18n="common.footer_location_label">Based in</span>: <span data-i18n="common.footer_location_value">Germany & Cameroon</span></li>
+          <li><a href="mailto:s.ngoufack@raphnlab.de">s.ngoufack@raphnlab.de</a></li>
+          <li><a href="contact.html" data-i18n="common.footer_form">Contact form</a></li>
+          <li data-i18n="common.footer_location_value">Germany &amp; Cameroon</li>
         </ul>
       </div>
       <div>

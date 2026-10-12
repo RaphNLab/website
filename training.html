@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="training.title">Training — RaphNLab</title>
-<meta name="description" content="C programming and embedded systems courses, free community seminars, and kids MINT workshops from RaphNLab.">
+<meta name="description" content="Learn embedded systems by building them: C and microcontroller courses, free workshops, kids MINT workshops and university programmes.">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,166 +13,363 @@
 <header class="site-header">
   <div class="container nav">
     <a href="index.html" class="brand">
-      <img src="assets/img/mascot-square.png" alt="RaphNLab">
+      <img src="assets/img/mascot-nav.png" alt="" width="68" height="28">
       <span class="brand-word">RaphNLab</span>
     </a>
-    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="site-menu">
       <li><a href="index.html" data-page="home" data-i18n="common.nav_home">Home</a></li>
       <li><a href="about.html" data-page="about" data-i18n="common.nav_about">About</a></li>
       <li><a href="services.html" data-page="services" data-i18n="common.nav_services">Services</a></li>
       <li><a href="training.html" data-page="training" data-i18n="common.nav_training">Training</a></li>
-      <li><a href="realisations.html" data-page="realisations" data-i18n="common.nav_realisations">Realisations</a></li>
+      <li><a href="realisations.html" data-page="realisations" data-i18n="common.nav_projects">Projects</a></li>
       <li><a href="contact.html" data-page="contact" data-i18n="common.nav_contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang-switch">
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="fr">FR</button>
-        <button type="button" data-lang="de">DE</button>
+      <div class="lang-menu">
+        <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false" aria-label="Language" data-i18n-aria="common.lang_label"><span class="flag flag-en"></span><span class="lang-code">EN</span></button>
+        <ul class="lang-options">
+          <li><button type="button" data-lang="en" lang="en"><span class="flag flag-en"></span>English</button></li>
+          <li><button type="button" data-lang="fr" lang="fr"><span class="flag flag-fr"></span>Français</button></li>
+          <li><button type="button" data-lang="de" lang="de"><span class="flag flag-de"></span>Deutsch</button></li>
+        </ul>
       </div>
-      <a href="contact.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.86rem;" data-i18n="common.nav_cta">Get in touch</a>
+      <a href="contact.html" class="btn btn-primary nav-cta" data-i18n="common.nav_cta">Get in touch</a>
+      <button type="button" class="nav-toggle" aria-label="Menu" aria-controls="site-menu" aria-expanded="false" data-i18n-aria="common.menu_label"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<section class="hero small">
+<section class="hero hero-split">
   <div class="container">
-    <span class="eyebrow on-dark" data-i18n="training.hero_eyebrow">For individuals, teams & institutions</span>
-    <h1 data-i18n="training.hero_title">Learn embedded systems the way we wish someone had taught us.</h1>
-    <p class="lede" data-i18n="training.hero_lede">From a child's first LED to a working microcontroller project.</p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="callout">
-      <h3 class="mt-0" data-i18n="training.format_title">How our courses work</h3>
-      <p style="margin:0;" data-i18n="training.format_text">Every paid course runs on weekends, splits evenly between theory and hands-on exercises, and includes a loaner hardware kit.</p>
+    <div>
+      <span class="eyebrow on-dark" data-i18n="training.hero_eyebrow">For curious minds & engineers</span>
+      <h1 data-i18n="training.hero_title">Learn embedded systems by actually building them.</h1>
+      <p class="lede" data-i18n="training.hero_lede">From your first line of C to a working STM32 project — with real hardware and guided practice.</p>
+      <div class="cta-row stack-mobile">
+        <a href="#courses" class="btn btn-primary" data-i18n="training.hero_cta_courses">Explore courses ↓</a>
+        <a href="#workshops" class="btn btn-outline-light" data-i18n="training.hero_cta_workshops">Free workshops →</a>
+      </div>
+      <p class="hero-meta" data-i18n="training.hero_meta">Hands-on · Weekend courses · Hardware included</p>
+    </div>
+    <div class="hero-visual">
+      <div class="photo-frame">
+        <img src="assets/img/photo-mixed-workshop.jpg" alt="Participants building circuits during a RaphNLab workshop">
+      </div>
+      <ol class="mini-path" aria-label="Learning path">
+        <li class="mono-label" style="padding:0;" data-i18n="training.path_label">Learning path</li>
+        <li>C</li>
+        <li data-i18n="training.path_mcu">MCU fundamentals</li>
+        <li>STM32</li>
+        <li>FreeRTOS</li>
+        <li data-i18n="training.path_project">Real project</li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="section-alt">
+<nav class="subnav" aria-label="On this page" data-i18n-aria="training.subnav_label">
+  <div class="container">
+    <ul>
+      <li><a href="#courses" data-i18n="training.nav_courses">Courses</a></li>
+      <li><a href="#workshops" data-i18n="training.nav_workshops">Free workshops</a></li>
+      <li><a href="#kids" data-i18n="training.nav_kids">Kids</a></li>
+      <li><a href="#institutions" data-i18n="training.nav_institutions">Institutions</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section style="padding-bottom:0;">
+  <div class="container">
+    <span class="mono-label" data-i18n="training.how_eyebrow">How learning works</span>
+    <div class="benefits" style="margin-top:18px;">
+      <div class="benefit">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4Z"/></svg></span>
+        <div><strong data-i18n="training.b1_title">50% hands-on</strong><span data-i18n="training.b1_text">Build on real equipment, not slides.</span></div>
+      </div>
+      <div class="benefit">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+        <div><strong data-i18n="training.b2_title">Weekends</strong><span data-i18n="training.b2_text">Fits around work or studies.</span></div>
+      </div>
+      <div class="benefit">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+        <div><strong data-i18n="training.b3_title">Practising engineer</strong><span data-i18n="training.b3_text">Taught by someone who builds this professionally.</span></div>
+      </div>
+      <div class="benefit">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span>
+        <div><strong data-i18n="training.b4_title">Hardware included</strong><span data-i18n="training.b4_text">A loaner kit for the length of the course.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow" data-i18n="training.catalog_eyebrow">Course catalogue</span>
-      <h2 data-i18n="training.catalog_title">Pick your starting point</h2>
+      <span class="eyebrow" data-i18n="training.catalog_eyebrow">Your learning path</span>
+      <h2 data-i18n="training.catalog_title">Start where you are. Build from there.</h2>
     </div>
-    <div class="grid grid-3">
-      <div class="price-card">
-        <span class="eyebrow" style="margin-bottom:8px;" data-i18n="training.c1_tag">10 chapters</span>
+
+    <div class="path-steps carousel-tab">
+      <article class="course">
+        <span class="mono-label" data-i18n="training.c1_label">01 / Beginner</span>
         <h3 data-i18n="training.c1_title">Introduction to C programming</h3>
-        <div class="amount">149&euro;</div>
-        <p class="mt-0" data-i18n="training.c1_text">From variables to dynamic memory and file handling.</p>
-        <ul>
-          <li data-i18n="training.c1_li1">10 chapters, 2 practical exercises each</li>
-          <li data-i18n="training.c1_li2">No prior programming experience required</li>
-          <li data-i18n="training.c1_li3">Final project with real data</li>
-        </ul>
-        <a href="contact.html" class="btn btn-outline btn-block" data-i18n="training.cta_button">Reserve your seat</a>
-      </div>
-      <div class="price-card featured">
-        <span class="tag" data-i18n="training.c2_tag">Most popular</span>
+        <p data-i18n="training.c1_short">Learn C from first principles and finish with a real-data project.</p>
+        <ul class="tags"><li data-i18n="training.c1_tag">10 chapters</li><li data-i18n="training.tag_no_prereq">No prerequisites</li></ul>
+        <dl class="course-facts">
+          <div><dt data-i18n="training.f_level">Level</dt><dd data-i18n="training.level_beginner">Beginner</dd></div>
+          <div><dt data-i18n="training.f_format">Format</dt><dd data-i18n="training.format_weekend">Weekends</dd></div>
+          <div><dt data-i18n="training.f_prereq">Prerequisites</dt><dd data-i18n="training.prereq_none">None</dd></div>
+          <div><dt data-i18n="training.f_next">Next session</dt><dd data-i18n="training.next_forming">Next cohort forming</dd></div>
+        </dl>
+        <div class="course-price"><span class="amount">149&nbsp;€</span></div>
+        <details>
+          <summary data-i18n="training.details">Course details</summary>
+          <p data-i18n="training.c1_text">From variables to dynamic memory and file handling.</p>
+          <ul class="caps">
+            <li data-i18n="training.c1_li1">10 chapters, 2 practical exercises each</li>
+            <li data-i18n="training.c1_li2">No prior programming experience required</li>
+            <li data-i18n="training.c1_li3">Final project with real data</li>
+          </ul>
+        </details>
+        <div class="actions">
+          <a href="contact.html?topic=training&amp;course=c1" class="btn btn-outline btn-block" data-reserve="c1" data-i18n="training.reserve_button">Reserve a seat</a>
+        </div>
+      </article>
+
+      <span class="path-arrow" aria-hidden="true">→</span>
+
+      <article class="course">
+        <span class="mono-label" data-i18n="training.c2_label">02 / Foundation</span>
         <h3 data-i18n="training.c2_title">Introduction to microcontrollers</h3>
-        <div class="amount">329&euro;</div>
-        <p class="mt-0" data-i18n="training.c2_text">Embedded systems from first principles.</p>
-        <ul>
-          <li data-i18n="training.c2_li1">5 modules, 2 practical exercises each</li>
-          <li data-i18n="training.c2_li2">GPIO, timers, ADC/DAC, I2C, SPI, UART, CAN</li>
-          <li data-i18n="training.c2_li3">Final project: build a home security device</li>
-          <li data-i18n="training.c2_li4">Requires basic C and electronics knowledge</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary btn-block" data-i18n="training.cta_button">Reserve your seat</a>
-      </div>
-      <div class="price-card">
-        <span class="eyebrow" style="margin-bottom:8px;" data-i18n="training.c3_tag">Best value</span>
-        <h3 data-i18n="training.c3_title">C + embedded systems bundle</h3>
-        <div class="amount">200&euro;</div>
-        <p class="mt-0" data-i18n="training.c3_text">Both courses combined at a discounted rate.</p>
-        <ul>
-          <li data-i18n="training.c3_li1">66 hours across roughly 10 weeks</li>
-          <li data-i18n="training.c3_li2">Free hardware kit included</li>
-          <li data-i18n="training.c3_li3">Combined price, below booking separately</li>
-        </ul>
-        <a href="contact.html" class="btn btn-outline btn-block" data-i18n="training.cta_button">Reserve your seat</a>
-      </div>
+        <p data-i18n="training.c2_short">Embedded systems from first principles, on a real STM32.</p>
+        <ul class="tags"><li>GPIO</li><li>Timers</li><li>ADC</li><li>SPI · UART · CAN</li></ul>
+        <dl class="course-facts">
+          <div><dt data-i18n="training.f_level">Level</dt><dd data-i18n="training.level_intermediate">Intermediate</dd></div>
+          <div><dt data-i18n="training.f_format">Format</dt><dd data-i18n="training.format_weekend">Weekends</dd></div>
+          <div><dt data-i18n="training.f_hardware">Hardware</dt><dd data-i18n="training.hw_kit">STM32 loaner kit</dd></div>
+          <div><dt data-i18n="training.f_prereq">Prerequisites</dt><dd data-i18n="training.prereq_c">Basic C & electronics</dd></div>
+          <div><dt data-i18n="training.f_next">Next session</dt><dd data-i18n="training.next_forming">Next cohort forming</dd></div>
+        </dl>
+        <div class="course-price"><span class="amount">329&nbsp;€</span></div>
+        <details>
+          <summary data-i18n="training.details">Course details</summary>
+          <p data-i18n="training.c2_text">Embedded systems from first principles.</p>
+          <ul class="caps">
+            <li data-i18n="training.c2_li1">5 modules, 2 practical exercises each</li>
+            <li data-i18n="training.c2_li2">GPIO, timers, ADC/DAC, I2C, SPI, UART, CAN</li>
+            <li data-i18n="training.c2_li3">Final project: build a home security device</li>
+          </ul>
+        </details>
+        <div class="actions">
+          <a href="contact.html?topic=training&amp;course=c2" class="btn btn-primary btn-block" data-reserve="c2" data-i18n="training.reserve_button">Reserve a seat</a>
+        </div>
+      </article>
+    </div>
+    <div class="carousel-nav"></div>
+
+    <div class="recommended-wrap">
+      <article class="course recommended">
+        <div>
+          <span class="mono-label" data-i18n="training.c3_label">Recommended path · complete journey</span>
+          <h3 style="margin:8px 0 10px;" data-i18n="training.c3_title">C + embedded systems bundle</h3>
+          <p style="margin:0 0 14px;" data-i18n="training.c3_text">Both courses combined into a single programme.</p>
+          <p class="route"><span>C</span><i>→</i><span data-i18n="training.path_mcu">MCU fundamentals</span><i>→</i><span data-i18n="training.route_project">STM32 project</span></p>
+        </div>
+        <div>
+          <dl class="course-facts">
+            <div><dt data-i18n="training.f_duration">Duration</dt><dd data-i18n="training.c3_duration">66 h · ~10 weeks</dd></div>
+            <div><dt data-i18n="training.f_hardware">Hardware</dt><dd data-i18n="training.hw_kit">STM32 loaner kit</dd></div>
+            <div><dt data-i18n="training.f_next">Next session</dt><dd data-i18n="training.next_forming">Next cohort forming</dd></div>
+          </dl>
+          <div class="course-price" style="margin:14px 0;"><span class="amount">200&nbsp;€</span></div>
+          <div class="actions">
+            <a href="contact.html?topic=training&amp;course=c3" class="btn btn-primary btn-block" data-reserve="c3" data-i18n="training.reserve_button">Reserve a seat</a>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section>
+<section class="section-alt" id="outcomes">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="training.outcomes_eyebrow">What you leave with</span>
+      <h2 data-i18n="training.outcomes_title">Skills you can actually use.</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="outcome"><span class="n">01</span><h3 data-i18n="training.o1_title">Write embedded C</h3><p data-i18n="training.o1_text">Understand memory, pointers and hardware-facing code.</p></div>
+      <div class="outcome"><span class="n">02</span><h3 data-i18n="training.o2_title">Work with STM32 peripherals</h3><p data-i18n="training.o2_text">Configure GPIO, timers and communication buses.</p></div>
+      <div class="outcome"><span class="n">03</span><h3 data-i18n="training.o3_title">Debug real systems</h3><p data-i18n="training.o3_text">Use tools and structured workflows rather than guesswork.</p></div>
+      <div class="outcome"><span class="n">04</span><h3 data-i18n="training.o4_title">Build a complete project</h3><p data-i18n="training.o4_text">Turn requirements into a working hardware/software system.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="workshops">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow" data-i18n="training.seminars_eyebrow">Free & open</span>
-      <h2 data-i18n="training.seminars_title">Community seminars</h2>
-      <p class="lede" style="margin:0 auto;" data-i18n="training.seminars_text">Short, free sessions open to anyone 16 and over, capped at 40 seats.</p>
+      <h2 data-i18n="training.seminars_title">Learn something useful in an afternoon.</h2>
+      <p class="lede" data-i18n="training.seminars_text">Short, free sessions open to anyone 16 and over, capped at 40 seats.</p>
     </div>
-    <div class="grid grid-3">
-      <div class="price-card free">
+    <div class="grid grid-3 carousel-tab small-items">
+      <article class="event">
+        <span class="mono-label" data-i18n="training.sem1_label">Technical writing</span>
         <h3 data-i18n="training.sem1_title">LaTeX workshop</h3>
-        <div class="amount" data-i18n="training.sem1_duration">2 hours &middot; Free</div>
-        <p class="mt-0" data-i18n="training.sem1_text">Get comfortable with LaTeX for technical documents and presentations.</p>
-      </div>
-      <div class="price-card free">
+        <p data-i18n="training.sem1_text">Get comfortable with LaTeX for technical documents.</p>
+        <ul class="event-facts"><li data-i18n="training.h2">2 h</li><li data-i18n="training.free">Free</li><li>16+</li><li data-i18n="training.seats40">40 seats</li></ul>
+        <a href="contact.html?topic=training" class="link-arrow" data-i18n="training.join_workshop">Ask for the next date</a>
+      </article>
+      <article class="event">
+        <span class="mono-label" data-i18n="training.sem2_label">First steps into embedded</span>
         <h3 data-i18n="training.sem2_title">Microcontroller workshop</h3>
-        <div class="amount" data-i18n="training.sem2_duration">3 hours &middot; Free</div>
-        <p class="mt-0" data-i18n="training.sem2_text">A first, no-pressure look at what embedded systems actually are.</p>
-      </div>
-      <div class="price-card free">
+        <p data-i18n="training.sem2_text">A first look at what embedded systems actually are.</p>
+        <ul class="event-facts"><li data-i18n="training.h3">3 h</li><li data-i18n="training.free">Free</li><li>16+</li><li data-i18n="training.beginner_friendly">Beginner-friendly</li></ul>
+        <a href="contact.html?topic=training" class="link-arrow" data-i18n="training.join_workshop">Ask for the next date</a>
+      </article>
+      <article class="event">
+        <span class="mono-label" data-i18n="training.sem3_label">Version control</span>
         <h3 data-i18n="training.sem3_title">Git workshop</h3>
-        <div class="amount" data-i18n="training.sem3_duration">2 hours &middot; Free</div>
-        <p class="mt-0" data-i18n="training.sem3_text">Manage and back up your code properly.</p>
-      </div>
+        <p data-i18n="training.sem3_text">Manage and back up your code properly.</p>
+        <ul class="event-facts"><li data-i18n="training.h2">2 h</li><li data-i18n="training.free">Free</li><li>16+</li><li data-i18n="training.seats40">40 seats</li></ul>
+        <a href="contact.html?topic=training" class="link-arrow" data-i18n="training.join_workshop">Ask for the next date</a>
+      </article>
     </div>
+    <div class="carousel-nav"></div>
   </div>
 </section>
 
-<section class="section-alt">
-  <div class="container" style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:48px; align-items:center;">
-    <div class="photo-frame">
-      <img src="assets/img/photo-kids-group.jpg" alt="Kids MINT Workshop group photo">
+<section class="section-alt" id="kids">
+  <div class="container kids-layout">
+    <div class="photo-frame ratio-4-3">
+      <img src="assets/img/photo-kids-group.jpg" alt="Kids MINT Workshop group photo with certificates" loading="lazy">
     </div>
     <div>
       <span class="eyebrow" data-i18n="training.kids_eyebrow">Ages 9–15</span>
-      <h2 data-i18n="training.kids_title">Kids MINT Workshop</h2>
+      <p class="slogan" data-i18n="training.kids_slogan" data-i18n-html>Engineering starts with <em>curiosity</em>.</p>
+      <h2 style="font-size:1.3rem;" data-i18n="training.kids_title">Kids MINT Workshop</h2>
       <p data-i18n="training.kids_text">A full day for children to discover electronics and programming hands-on.</p>
       <ul>
         <li data-i18n="training.kids_li1">One full day, small groups (max. 15)</li>
         <li data-i18n="training.kids_li2">All materials and tools provided</li>
         <li data-i18n="training.kids_li3">Free for families, always</li>
       </ul>
+      <a href="contact.html?topic=training" class="link-arrow" data-i18n="training.kids_link">Ask about the next workshop</a>
     </div>
   </div>
 </section>
 
-<section>
+<section id="institutions">
+  <div class="container split top">
+    <div>
+      <span class="eyebrow" data-i18n="training.institutional_eyebrow">For schools & universities</span>
+      <h2 data-i18n="training.institutional_title">Bring hands-on embedded engineering into your programme.</h2>
+      <p class="lede" data-i18n="training.institutional_text">For partner institutions, we design and deliver intensive programmes on-site.</p>
+      <ul class="check-list">
+        <li data-i18n="training.inst_li1">Custom curriculum</li>
+        <li data-i18n="training.inst_li2">From 1 day to several weeks</li>
+        <li data-i18n="training.inst_li3">Lab and equipment planning</li>
+        <li data-i18n="training.inst_li4">Delivered in English, French or German</li>
+        <li data-i18n="training.inst_li5">On-site delivery</li>
+      </ul>
+      <a href="contact.html?topic=partnership" class="btn btn-dark" data-i18n="training.inst_cta">Discuss an institutional programme →</a>
+    </div>
+    <div class="programme">
+      <span class="mono-label" data-i18n="training.prog_label">Programme example</span>
+      <h3 style="margin-top:6px;" data-i18n="training.prog_title">5-day embedded bootcamp</h3>
+      <ol>
+        <li><span data-i18n="training.day1">Day 1</span><span data-i18n="training.prog_d1">C & MCU foundations</span></li>
+        <li><span data-i18n="training.day2">Day 2</span><span data-i18n="training.prog_d2">GPIO, timers, ADC</span></li>
+        <li><span data-i18n="training.day3">Day 3</span><span data-i18n="training.prog_d3">Interfaces & communication</span></li>
+        <li><span data-i18n="training.day4">Day 4</span><span>FreeRTOS</span></li>
+        <li><span data-i18n="training.day5">Day 5</span><span data-i18n="training.prog_d5">Team project</span></li>
+      </ol>
+      <p class="note" style="margin-bottom:0;" data-i18n="training.prog_note">Every programme is adapted to your students, schedule and equipment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
   <div class="container">
-    <span class="eyebrow" data-i18n="training.institutional_eyebrow">For schools & universities</span>
-    <h2 data-i18n="training.institutional_title">Institutional & bootcamp training</h2>
-    <p class="lede" data-i18n="training.institutional_text">For partner institutions, we design and deliver intensive, multi-day programmes on-site.</p>
-    <ul style="color:var(--text-muted);">
-      <li data-i18n="training.institutional_li1">Custom-length programmes, from a single day to several weeks</li>
-      <li data-i18n="training.institutional_li2">Full curriculum and lab equipment planning included</li>
-      <li data-i18n="training.institutional_li3">Delivered in French, English or German</li>
-    </ul>
+    <div class="stat-strip on-light">
+      <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></svg></span><div><span class="num">213+</span><span class="label" data-i18n="home.stat_students_label">People trained</span></div></div>
+      <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg></span><div><span class="num">36</span><span class="label" data-i18n="home.stat_seminars_label">Seminars & workshops</span></div></div>
+      <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h8M8 3v2M5 9c1.5 3 4 5 7 6M11 5c-1 4-3 7-7 9"/><path d="m13 21 4-9 4 9M14.5 18h5"/></svg></span><div><span class="num">3</span><span class="label" data-i18n="training.stat_languages">Teaching languages</span></div></div>
+      <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span><div><span class="num">2</span><span class="label" data-i18n="training.stat_continents">Continents</span></div></div>
+    </div>
   </div>
 </section>
 
 <section class="section-ink text-center">
-  <div class="container" style="max-width:720px;">
-    <h2 data-i18n="training.cta_title">Ready to start learning?</h2>
-    <p data-i18n="training.cta_text">Tell us which course fits, or ask us if you're not sure.</p>
-    <a href="contact.html" class="btn btn-primary" data-i18n="training.cta_button">Reserve your seat</a>
+  <div class="container max-w center">
+    <h2 data-i18n="training.cta_title">Not sure where to start?</h2>
+    <p data-i18n="training.cta_text">Tell us your current level and what you'd like to build. We'll help you choose the right starting point.</p>
+    <div class="cta-row stack-mobile" style="justify-content:center;">
+      <a href="contact.html?topic=training" class="btn btn-primary" data-i18n="training.cta_help">Help me choose →</a>
+      <a href="#courses" class="btn btn-outline-light" data-i18n="training.reserve_button">Reserve a seat</a>
+    </div>
   </div>
 </section>
+
+<dialog class="drawer" id="reserve" aria-labelledby="reserve-title">
+  <form id="reserve-form" class="drawer-inner form-grid" data-endpoint="">
+    <div class="drawer-head">
+      <div>
+        <span class="mono-label" data-i18n="training.reserve_eyebrow">Reserve your seat</span>
+        <h2 id="reserve-title" data-i18n="training.reserve_title">Request a reservation</h2>
+      </div>
+      <button type="button" class="drawer-close" data-close aria-label="Close" data-i18n-aria="common.close">&times;</button>
+    </div>
+    <div>
+      <label for="rs-course" data-i18n="training.rs_course">Course</label>
+      <select id="rs-course" name="course">
+        <option value="c1" data-i18n="training.c1_title">Introduction to C programming</option>
+        <option value="c2" data-i18n="training.c2_title">Introduction to microcontrollers</option>
+        <option value="c3" data-i18n="training.c3_title">C + embedded systems bundle</option>
+      </select>
+    </div>
+    <div>
+      <label for="rs-session" data-i18n="training.rs_session">Preferred session</label>
+      <select id="rs-session" name="session">
+        <option data-i18n="training.rs_session_next">Next available cohort</option>
+        <option data-i18n="training.rs_session_notify">Just notify me when dates are set</option>
+      </select>
+    </div>
+    <div class="form-row-2">
+      <div>
+        <label for="rs-name" data-i18n="contact.form_name">Name</label>
+        <input type="text" id="rs-name" name="name" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="rs-email" data-i18n="contact.form_email">Email</label>
+        <input type="email" id="rs-email" name="email" autocomplete="email" required>
+      </div>
+    </div>
+    <div>
+      <label for="rs-level" data-i18n="training.rs_level">Experience</label>
+      <select id="rs-level" name="experience">
+        <option data-i18n="training.rs_level_1">Beginner — no programming yet</option>
+        <option data-i18n="training.rs_level_2">Some C or programming experience</option>
+        <option data-i18n="training.rs_level_3">Working engineer</option>
+      </select>
+    </div>
+    <div>
+      <label for="rs-notes"><span data-i18n="training.rs_notes">Anything we should know?</span> <span class="optional" data-i18n="contact.optional">(optional)</span></label>
+      <textarea id="rs-notes" name="notes" style="min-height:90px;"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" data-i18n="training.rs_submit">Request reservation</button>
+    <p class="form-note" data-i18n="training.rs_note">This is a request, not a payment. We'll confirm dates and availability by email.</p>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="assets/img/mascot-square.png" alt="RaphNLab">
+          <img src="assets/img/mascot-nav.png" alt="" width="63" height="26">
           <span>RaphNLab</span>
         </div>
         <p data-i18n="common.footer_tagline">Embedded systems engineering and training, built between Germany and Cameroon.</p>
@@ -186,14 +383,15 @@
           <li><a href="about.html" data-i18n="common.nav_about">About</a></li>
           <li><a href="services.html" data-i18n="common.nav_services">Services</a></li>
           <li><a href="training.html" data-i18n="common.nav_training">Training</a></li>
-          <li><a href="realisations.html" data-i18n="common.nav_realisations">Realisations</a></li>
+          <li><a href="realisations.html" data-i18n="common.nav_projects">Projects</a></li>
         </ul>
       </div>
       <div>
         <h4 data-i18n="common.footer_contact">Contact</h4>
         <ul>
-          <li><span data-i18n="common.footer_email_label">Email</span>: <a href="mailto:s.ngoufack@raphnlab.de">s.ngoufack@raphnlab.de</a></li>
-          <li><span data-i18n="common.footer_location_label">Based in</span>: <span data-i18n="common.footer_location_value">Germany & Cameroon</span></li>
+          <li><a href="mailto:s.ngoufack@raphnlab.de">s.ngoufack@raphnlab.de</a></li>
+          <li><a href="contact.html" data-i18n="common.footer_form">Contact form</a></li>
+          <li data-i18n="common.footer_location_value">Germany &amp; Cameroon</li>
         </ul>
       </div>
       <div>
