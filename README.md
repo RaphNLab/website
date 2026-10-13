@@ -108,9 +108,7 @@ Both forms work in two modes (see `sendForm` in `assets/js/main.js`):
   the only confirmed live, public profile found in your files. Add real URLs
   next to the Instagram link in all six footers when those channels are
   public.
-- **Pricing**: course prices (149€ / 329€ / 200€) are pulled from your 2024
-  pricing sheet. The bundle (200€) is cheaper than the microcontroller course
-  alone (329€) — confirm this is intentional, or correct it, before publishing.
+- **Pricing**: course prices (279€ / 589€ / 789€) are pulled from your 2024
 - **Course sessions**: courses show "Next cohort forming". Replace with real
   dates, format (remote / city), language and seats once sessions are planned
   (`training.next_forming` and the "Preferred session" options).
